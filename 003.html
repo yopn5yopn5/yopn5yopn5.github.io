@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金魚都能懂得這個網頁怎麼切 多層式收合式</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        
+    <style>
+ 
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        html,body{
+            height: 100%;
+        }
+        body{
+            background-color: #546377;
+        }
+        .side-menu{
+            position: relative;
+            width: 300px;
+            height: 100%;
+            padding: 50px 0;
+            box-sizing: border-box;
+            background-image: linear-gradient(0deg,#3381b0,#c2196c);
+            display:flex;
+            flex-direction: column;
+            box-shadow: 5px 0px 10px hsla(240, 40%, 15%,.6);
+            transform: translate(-100%);
+            transition: .3s;
+        }
+        .side-menu form{
+            display: flex;
+            margin: 0 10px;   
+            border-radius: 100px;
+            border: 1px solid #fff;
+        }
+        .side-menu form input,
+        .side-menu form button{
+            border:none;
+            padding:5px 10px;
+            color: #fff;
+            background-color: transparent;
+        }    
+        
+        .side-menu form input{
+            width: 230px;
+        }
+        .side-menu form button{
+            width: 50px;
+        }
+        .side-menu form input:focus,
+        .side-menu form button:focus{
+            outline: none;
+        }
+        .side-menu label
+        {
+            position:absolute;
+            width: 40px;
+            height: 80px;
+            background-color: #000;
+            color: #fff;
+            right: -40px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            line-height: 80px;
+            text-align: center;
+            font-size: 30px;
+            border-radius: 0 10px 10px 0;
+        }
+        #side-menu-switch{
+            position:absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+        #side-menu-switch:checked+ .side-menu{
+            transform: translateX(0);
+        }
+        #side-menu-switch:checked+ .side-menu label .fa{
+            transform: scaleX(-1);
+         
+        }
+        .nav a{
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+        }
+        .nav li{
+            position: relative;
+        }
+       .nav li+li a::before{
+            content: '';
+            position: absolute;
+            border-top: 1px solid #fff;
+            left: 10px;
+            right: 10px;
+            top: 0;
+        }
+
+        .nav a .fa{
+            margin-right: -1.1em;
+            transform: scale(0);
+        }
+        .nav li:hover .fa{
+            margin-right: 0em;
+            transform: scale(1);
+            transition: .3S;
+        }
+        .nav li:hover>a {
+            background-color: rgba(0, 0, 0, .5);
+        }
+        .nav ul{
+            display: none;
+            position: absolute;
+            top: 6px;
+            left: 100%;
+            width: 300px;
+            background-color: rgba(255,255, 255,.2);
+            box-shadow: 5px 0px 10px hsla(240, 40%, 15%,.6);
+        }
+        .nav li:hover >ul{
+            display: block;
+        }
+
+        
+
+
+    </style>
+    
+</head>
+<body>
+    
+    <input type="checkbox" name="" id="side-menu-switch">
+
+    <div class="side-menu">
+        <form>
+            <input type="search" placeholder="請輸入關鍵字">
+            <button><i class="fa fa-search"></i></button>
+        </form>
+        <ul class="nav">
+        <li>
+            <a href="#"><i class="fa fa-angry" aria-hidden="true"></i>鐵人賽</a>
+            <ul>
+                <li>
+                    <a href="#">金魚都能懂得網頁設計入門</a>
+                    <ul>
+                        <li>
+                            <a href="#">DAY1</a>
+                        </li>
+                        <li>
+                            <a href="#">DAY2</a>
+                        </li>
+                        <li>
+                            <a href="#">DAY3</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">金魚都能懂得css選取器</a>
+                    <ul>
+                        <li>
+                            <a href="#">DAY1</a>
+                        </li>
+                        <li>
+                            <a href="#">DAY2</a>
+                        </li>
+                        <li>
+                            <a href="#">DAY3</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">金魚都能懂得網頁怎麼切</a>
+                    <ul>
+                        <li>
+                            <a href="#">DAY1</a>
+                        </li>
+                        <li>
+                            <a href="#">DAY2</a>
+                        </li>
+                        <li>
+                            <a href="#">DAY3</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">金魚都能懂得垂直致中教學</a>
+                    <ul>
+                        <li>
+                            <a href="#">DAY1</a>
+                        </li>
+                        <li>
+                            <a href="#">DAY2</a>
+                        </li>
+                        <li>
+                            <a href="#">DAY3</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-users" aria-hidden="true"></i>暴力班</a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-gavel" aria-hidden="true"></i>RWD 醬子</a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-angry" aria-hidden="true"></i>金魚網頁</a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-angry" aria-hidden="true"></i>金魚切版</a>
+        </li>
+        </ul>
+        <label for="side-menu-switch">
+            <i class="fa fa-angle-right"></i>
+        </label>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>寶可夢圖鑑列表</h1>
+    <button onclick='fetchPokemon()'>載入寶可夢圖鑑列表</button>
+    <button id="btn2" >載入寶可夢圖鑑列表</button>
+    <button  id="btn3" >載入寶可夢圖鑑列表</button>
+    <button onclick='fetchPokemon_appendChild()'>載入寶可夢圖鑑列表appendChild()</button>
+    
+    <div id='container'>
+        <!-- <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png"/> -->
+    </div>
+  
+
+    <script>
+        let container = document.getElementById('container');
+
+
+
+        window.onload=setPokemon();
+
+        function setPokemon()
+        {
+            let h1=document.getElementsByTagName("h1")[0];
+            h1.innerHTML="Pokemon圖鑑列表";
+            
+            let fileName="001";
+            let pathFile=`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+            let pokemonImg=`<img src='${pathFile}'/>`;            
+
+            
+            let pkImg=`  <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png" alt="">`
+
+
+            container.innerHTML=pokemonImg;
+
+        }
+
+        //方式2:新增DOM元素
+        function appendPokemon() {
+            //...
+        }
+
+        //方式1:for迴圈 ＋ Element.innerHTML設定HTML字串
+        function fetchPokemon() {
+            //...
+                        container.innerHTML = "";
+
+            let pokemons = "";
+
+            for (let i = 1; i <= 898; i++) { 
+                fileName = i.toString().padStart(3, '0');
+                let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+                let pokemonImg = `<img src = "${pathFile}">`;
+
+                pokemons += pokemonImg;
+            }
+
+            container.innerHTML = pokemons;
+            }   
+
+        //方式2:for迴圈 ＋ 新增DOM元素
+        function fetchPokemon_appendChild() {       
+            //...
+        }
+        let btn2 = document.getElementById("btn2");
+        btn2.onclick = fetchPokemon;
+
+        let btn3 = document.getElementById("btn3");
+        btn3.addEventListener("click", fetchPokemon);
+        
+    </script>
+</body>
+
+</html>
