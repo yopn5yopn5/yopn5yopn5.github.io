@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .section{
+            width: 960px;
+            margin: auto;
+            padding: 50px 0;
+            /* border: 2px solid blue; */
+        }
+        .section:nth-child(even) .title-group{
+            margin-left: auto;
+        }
+        .title-group{
+            width: 320px;
+            position: relative;
+            z-index: 3;
+          
+            
+        }
+        .title-group .title{
+            background-color: #f00;
+            color: #fff;
+            font-size: 50px;
+        }
+        .title-group .title-sg{
+            background-color: #000;
+            color: #fff;
+            position: absolute;
+        }
+        .pic-group{
+            width: 720px;
+            display: flex;
+            align-items: center;
+            outline: 1px solid green;
+            margin-left: 16.666666%;
+            position: relative;
+
+
+        }
+        section:nth-child(even) .pic-group{
+            margin-left: 8.333333%;
+        }
+        .pic-group .pic{
+            width: 98%;
+            margin-right: -6.333333%;
+            position: relative;
+            z-index: 2;
+           
+
+        }
+        .pic-group .pic img{
+            width: 100%;
+            display: block;
+        }
+        .pic-group .btn
+        {
+            width: 8.33333%;
+            position: relative;
+            z-index: 2;
+        }
+        .pic-group .btn img{
+            width: 100%;
+        }
+        .pic-group .gray{
+            width: 300px;
+            height: 200px;
+            background-color: #aaa;
+            top: -10%;
+            right: -10%;
+            position: absolute;
+        }
+
+
+        .main-txt{
+                    width: 640px;
+                    background-color: #ddd;
+                    margin-top: -2em;
+                    position: relative;
+                    z-index:3;
+                }
+        .main-txt .sg
+        {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .main-txt .sg span:first-child{}
+
+        .main-txt .sg .line{
+            width: 100px;
+            height:4px;
+            background-color: #f00;
+            flex-grow: 1;
+            margin-left: 1em;
+
+        }
+        .main-txt p{
+            background-image: url("https://fakeimg.pl/4x4/f00");
+            background-repeat: no-repeat;
+            background-position: 0.4em 0.6em;
+            padding-left: 1em;
+        }
+
+    </style>
+</head>
+<body>
+    
+<section class="section">
+    <!-- 主區一 -->
+    <div class="title-group">
+        <h2 class="title">
+            <span class="number">01</span>
+            <span class="title-text">操控樂趣</span>
+
+        </h2>
+        <div class="title-sg">
+            <h3>人人滿意的駕駛體驗</h3>
+            <p>
+                透過最佳重量分配·實現平順起 步直線穩定加速·過彎同時保持 車身平穩·帶給駕駛更靈敏的道路
+            </p>
+        </div>
+    </div> 
+      <!-- 主區二 -->
+    <div class="pic-group">
+        <div class="pic">
+            <img src="https://picsum.photos/400/250" alt="">
+        </div>
+        <div class="btn">
+            <img src="https://fakeimg.pl/80x40/f00" alt="">
+        </div>
+        <div class="gray"></div>
+
+    </div>
+      <!-- 主區三 -->
+    <div class="main-txt">
+        <div class="sg">
+            <span> 因為我們做了這些革新</span>
+            <span class="line"></span>
+        </div>
+        <h3>低中心設計</h3>
+        <p>透過低重心設計,不懂呈現更低伏的外觀·更能減少車身側傾·保持高速行駛穩定性</p>
+        <h3>車體剛性強化</h3>
+        <p>車身結構採用超高強度鋼材·提高車輛穩定性·同時藉由雷射強化焊接技術·大幅增加 焊點數量·提升車身抗扭剛性·強化駕馭穩定性及安全性</p>
+        <h3>四輪獨立懸吊</h3>
+        <p>搭載全新四輪獨立懸吊設定·透過懸吊的高承載強度·保持輪胎抓地力·同時兼顧轉向 靈敏度與清晰路感回饋·提升駕馭樂趣</p>
+    </div>
+</section>
+
+<section class="section">
+    <!-- 主區一 -->
+    <div class="title-group">
+        <h2 class="title">
+            <span class="number">02</span>
+            <span class="title-text">安全守護</span>
+
+        </h2>
+        <div class="title-sg">
+            <h3>行車更安心的高剛性车體</h3>
+            <p>
+                您的愛車會妥善保護您,強悍穩固 的車身可使您安全無虞。世界級的 安全功能讓您輕鬆自如享受旅程 毫無後顧之憂。
+            </p>
+        </div>
+    </div> 
+      <!-- 主區二 -->
+    <div class="pic-group">
+        <div class="pic">
+            <img src="https://picsum.photos/400/250" alt="">
+        </div>
+        <div class="btn">
+            <img src="https://fakeimg.pl/80x40/f00" alt="">
+        </div>
+        <div class="gray"></div>
+
+    </div>
+      <!-- 主區三 -->
+    <div class="main-txt">
+        <div class="sg">
+            <span> 因為我們做了這些革新</span>
+            <span class="line"></span>
+        </div>
+        <h3>主動安全</h3>
+        <p>透過低重心設計,以先進的TSS系統·主動偵测路·輔助駛判斷路沉並维持行安全</p>
+        <h3>被動安全</h3>
+        <p>堅固的高剛性體·使用熱沖壓材料的高強度抗扭鋼板·強化座對意外事故的保力 焊點數量·提升車身抗扭剛性·強化駕馭穩定性及安全性</p>
+    </div>
+</section>
+
+<section class="section">
+    <!-- 主區一 -->
+    <div class="title-group">
+        <h2 class="title">
+            <span class="number">03</span>
+            <span class="title-text">乘坐舒適</span>
+
+        </h2>
+        <div class="title-sg">
+            <h3>令人放鬆舒適的車室空間</h3>
+            <p>
+                車室空間設計著重人體工學·透過 方向盤踏板等位置優化·追求更 舒適的駕駛位置·並以新型座椅設 計·提高座椅包覆性·致力實現長
+            </p>
+        </div>
+    </div> 
+      <!-- 主區二 -->
+    <div class="pic-group">
+        <div class="pic">
+            <img src="https://picsum.photos/400/250" alt="">
+        </div>
+        <div class="btn">
+            <img src="https://fakeimg.pl/80x40/f00" alt="">
+        </div>
+        <div class="gray"></div>
+
+    </div>
+      <!-- 主區三 -->
+    <div class="main-txt">
+        <div class="sg">
+            <span> 因為我們做了這些革新</span>
+            <span class="line"></span>
+        </div>
+        <h3>駕駛位置最佳化</h3>
+        <p>透過低重心設計,針對駕駛位置進行微底的修改·讓駕馭者可如同握手般自然且舒迪地操控方向盤</p>
+        <h3>駕馭視野佳</h3>
+        <p>考量駕駛坐進内的高度·透過前擋風玻璃位置的調整·達到盲區極小化·使駛視野 更開闊同步提升駕馭安全 焊點數量·提升車身抗扭剛性·強化駕馭穩定性及安全性</p>
+        <h3>更寧靜的車室</h3>
+        <p>採用最新三層結構的隔音材料,與引擎、變速箱的零件改革·將座的震動抑制在最小 限度·提供乘客舒適安靜的感受/p>
+    </div>
+</section>
+<section class="section">
+    <!-- 主區一 -->
+    <div class="title-group">
+        <h2 class="title">
+            <span class="number">04</span>
+            <span class="title-text">以人為本</span>
+
+        </h2>
+        <div class="title-sg">
+            <h3>令人放鬆舒適的車室空間</h3>
+            <p>
+                使用者導向的貼心設計 藉由高度人性化的介面整合傳遞 車輛資訊豐富日常駕駛體驗 從提升油耗表現到行李廂空間最適 化·均細心考量·更加貼近使用者 真正所需與習慣·並給予即時回應
+            </p>
+        </div>
+    </div> 
+      <!-- 主區二 -->
+    <div class="pic-group">
+        <div class="pic">
+            <img src="https://picsum.photos/400/250" alt="">
+        </div>
+        <div class="btn">
+            <img src="https://fakeimg.pl/80x40/f00" alt="">
+        </div>
+        <div class="gray"></div>
+
+    </div>
+      <!-- 主區三 -->
+    <div class="main-txt">
+        <div class="sg">
+            <span> 因為我們做了這些革新</span>
+            <span class="line"></span>
+        </div>
+        <h3>優異油耗表現</h3>
+        <p>透過低重心設計,以AURIS 為例·更強勁的高效引擎將熱效率提升至40%·達到世界級水準·屢屢突破 燃油效率新境界
+            行李箱空間最適化</p>
+        <p>以PRIUS 為例·透過將電池位置移到後座下方·讓行李擁有更大的空間/p>
+    </div>
+</section>
+
+<section class="section">
+    <!-- 主區一 -->
+    <div class="title-group">
+        <h2 class="title">
+            <span class="number">05</span>
+            <span class="title-text">引以為傲</span>
+
+        </h2>
+        <div class="title-sg">
+            <h3>極具吸引力的精心設計</h3>
+            <p>
+                TNGA車款擁有讓人忍不住回頭的 新潮外觀·讓駕駛充滿自信的駕馭 快感!不僅讓車主能展現個人風格 也能讓擁有者都能引以為傲
+            </p>
+        </div>
+    </div> 
+      <!-- 主區二 -->
+    <div class="pic-group">
+        <div class="pic">
+            <img src="https://picsum.photos/400/250" alt="">
+        </div>
+        <div class="btn">
+            <img src="https://fakeimg.pl/80x40/f00" alt="">
+        </div>
+        <div class="gray"></div>
+
+    </div>
+      <!-- 主區三 -->
+    <div class="main-txt">
+        <div class="sg">
+            <span> 因為我們做了這些革新</span>
+            <span class="line"></span>
+        </div>
+        <h3>設計概念</h3>
+        <p>透·TNGA低重心設計·不懂呈現更低伏的運動化外觀·更满究高品質内装的一致性
+            環保概念</p>
+        <p>以PRIUS 為了對環境保護盡一份心力·我們全面提升傳統引擎·變速箱與油電複合動力的動力 效能/p>
+    </div>
+</section>
+
+    
+
+
+</body>
+</html>
