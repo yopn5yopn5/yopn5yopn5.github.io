@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Store Example</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      #navbar {
+        margin-bottom: 20px;
+        background-color: #333333;
+        display: block;
+        text-align: center;
+        padding: 10px;
+      }
+
+      #navbar .button {
+        border: none;
+        color: #ffffff;
+        background-color: transparent;
+        margin: 0px 10px;
+      }
+
+      #product_img {
+        width: 500px;
+        height: 500px;
+      }
+
+      #content_color {
+      }
+      #content_spec {
+      }
+      #content_price {
+      }
+
+      .color_btn,
+      .spec_btn {
+        margin: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div id="navbar" class="row"></div>
+      <div class="row" id="content">
+        <div class="col" id="content_left"></div>
+        <div class="col" id="content_right">
+          <div class="row" id="content_color"></div>
+          <div class="row" id="content_spec"></div>
+          <div class="row" id="content_price"></div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // 讀入 object
+      let product = {
+        IPhone: {
+          Detail: {
+            productName: "iPhone 11",
+            baseImgUrl: "../apple_img/img/iphone11-select-2019-family.png",
+          },
+          OutWard: [
+            {
+              color: "紅色",
+              colorValue: "#ff0000",
+              imageUrl: "../apple_img/img/iphone-red.png",
+            },
+            {
+              color: "黃色",
+              colorValue: "#ffff00",
+              imageUrl: "../apple_img/img/iphone-yellow.png",
+            },
+            {
+              color: "黑色",
+              colorValue: "#000000",
+              imageUrl: "../apple_img/img/iphone-black.png",
+            },
+          ],
+          Spec: {
+            Storge: [
+              { size: "64GB", fit: 24900 },
+              { size: "128GB", fit: 26900 },
+              { size: "256GB", fit: 30400 },
+            ],
+          },
+        },
+        IPad: {
+          Detail: {
+            productName: "iPad",
+            baseImgUrl:
+              "../apple_img/img/ipad-hero-unselected-201909_GEO_TW.png",
+          },
+          OutWard: [
+            {
+              color: "太空灰色",
+              colorValue: "#6e6969",
+              imageUrl: "../apple_img/img/ipad-space.png",
+            },
+            {
+              color: "銀色",
+              colorValue: "#b9aeae",
+              imageUrl: "../apple_img/img/ipad-silver.png",
+            },
+            {
+              color: "金色",
+              colorValue: "#ceb7a8",
+              imageUrl: "../apple_img/img/ipad-gold.png",
+            },
+          ],
+          Spec: {
+            Storge: [
+              { size: "32GB", fit: 10900 },
+              { size: "128GB", fit: 13900 },
+            ],
+          },
+        },
+        MacPro: {
+          Detail: {
+            productName: "MacPro 13",
+            baseImgUrl: "../apple_img/img/mbp13touch-space-gallery1-201907.png",
+          },
+          OutWard: [
+            {
+              color: "太空灰色",
+              colorValue: "#6e6969",
+              imageUrl: "../apple_img/img/mbp13touch-space.png",
+            },
+            {
+              color: "銀色",
+              colorValue: "#b9aeae",
+              imageUrl: "../apple_img/img/mbp13touch-silver.png",
+            },
+          ],
+          Spec: {
+            Storge: [
+              { size: "256GB", fit: 51300 },
+              { size: "512GB", fit: 57300 },
+              { size: "1TB", fit: 63300 },
+              { size: "2TB", fit: 75300 },
+            ],
+          },
+        },
+      };
+    </script>
+    <script>
+      function initNavBar(product_object) {
+        // 一開始進來的 Object, 是全部
+        console.log(product_object);
+        // 先獲取 navbar 的 id
+        let navbar = document.getElementById("navbar");
+        // 先獲取 div 的 id 叫做 content
+        let div_content = document.getElementById("content");
+        // 先獲取 content left 的空間
+        let content_left = div_content.querySelector("#content_left");
+
+        // Object.keys(product_object).length 是獲取這個 Object 有多少 keys
+        // keys = IPhone, IPad, MacPro, 意思是 product_object 有三個 keys
+        for (let i = 0; i < Object.keys(product_object).length; i++) {
+          // 每次 for loop 產生 input element
+          let input = document.createElement("input");
+          input.type = "button";
+          input.className = "button";
+          // Object.keys(product_object)[i] 是獲取 Objects.key[0] = IPhone, [1] = IPad ..... 以此類推
+          input.value = `${Object.keys(product_object)[i]}`;
+          // 每個 button for loop 時會產生監聽器，
+          // 因為使用者點擊後，會產生 click 動作，並執行下面的程式碼
+          input.addEventListener("click", () => {
+            // 清除曾經在左邊生成的 div，直接清掉他的空間(dom)，如果沒有則會跳過
+            // lastElementChild 意思是 content_left 下面有幾個
+            // <div class="col" id="content_left">
+            //      <lastElementChild>
+            // </div>
+            // 如果沒有使用會一直產生圖片
+            while (content_left.lastElementChild) {
+              content_left.removeChild(content_left.lastElementChild);
+            }
+            // 上面有使用過，要抓取現在點擊按鈕是什麼值， 第 19 行
+            let click_value = input.value;
+            // 因為 product_object 是 Object, 所以 product_object['IPhone'] 就是我們要抓 IPhone 的資料
+            // 這邊是迴圈，所以直接放入剛剛點擊的值
+            let curr_object = product_object[click_value];
+            // console.log(curr_object);
+            // 要建立左邊的 img 要產生的 html tag(element)
+            let img = document.createElement("img");
+            img.id = "product_img";
+            img.src = curr_object.Detail.baseImgUrl;
+            content_left.appendChild(img);
+            // 建立 color_button's func
+            create_color_button(curr_object);
+            // 建立 spec_button's func
+            create_spec_button(curr_object);
+          });
+          navbar.appendChild(input);
+        }
+      }
+
+      function create_color_button(product_object) {
+        // console.log(product_object);
+        // 抓 html 結構的 content_color
+        let content_right_color_div = document.getElementById("content_color");
+        // 參考 23 - 28 行，這邊不寫會重複產生 button
+        while (content_right_color_div.lastElementChild) {
+          content_right_color_div.removeChild(
+            content_right_color_div.lastElementChild
+          );
+        }
+        // OutWard 是指產品裡面的所有的顏色種類
+        for (let i = 0; i < product_object.OutWard.length; i++) {
+          // 建立 button，附上 button 的屬性
+          let color_btn = document.createElement("button");
+          color_btn.className = "btn btn-primary color_btn";
+          color_btn.id = `color${i}`;
+          color_btn.innerHTML = product_object.OutWard[i].color;
+          // 如果 color button 被點擊，換圖片
+          color_btn.addEventListener("click", () => {
+            // 傳入圖片的位置
+            create_product_image(product_object.OutWard[i].imageUrl);
+          });
+          // 所有屬性建立完後，產生在 content_color's div 下
+          content_right_color_div.appendChild(color_btn);
+        }
+      }
+
+      function create_spec_button(product_object) {
+        let content_right_spec_div = document.getElementById("content_spec");
+        let content_right_price_div = document.getElementById("content_price");
+        // 這邊有使用到 p 顯示價格
+        let p_content = document.createElement("p");
+        // 參考 23 - 28 行，這邊不寫會重複產生 button
+        while (content_right_spec_div.lastElementChild) {
+          content_right_spec_div.removeChild(
+            content_right_spec_div.lastElementChild
+          );
+        }
+        // 參考 23 - 28 行，這邊不寫會重複產生 price 資訊
+        while (content_right_price_div.lastElementChild) {
+          content_right_price_div.removeChild(
+            content_right_price_div.lastElementChild
+          );
+        }
+        // Storge 是指產品裡面的所有的容量種類
+        for (let i = 0; i < product_object.Spec.Storge.length; i++) {
+          let spec_btn = document.createElement("button");
+          spec_btn.className = "btn btn-primary spec_btn";
+          spec_btn.id = `spec${i}`;
+          spec_btn.innerHTML = product_object.Spec.Storge[i].size;
+          spec_btn.value = product_object.Spec.Storge[i].fit;
+          spec_btn.addEventListener("click", () => {
+            // 第 100 行 直接抓取這個 button's value
+            p_content.innerHTML = `NT$${spec_btn.value}元`;
+          });
+          // 所有屬性建立完後，產生在 content_price's div 下
+          content_right_price_div.appendChild(p_content);
+          // 所有屬性建立完後，產生在 content_spec's div 下
+          content_right_spec_div.appendChild(spec_btn);
+        }
+      }
+
+      function create_product_image(image) {
+        // 因為只有執行 initNavBar, 所以 product_img 已經產生了
+        let content_img = document.getElementById("product_img");
+        content_img.src = image;
+      }
+
+      // 實際執行只有這個
+      initNavBar(product);
+    </script>
+  </body>
+</html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>LoL card</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -14,12 +14,12 @@
     <style>
       .card {
         border: 1px solid black;
-        margin-bottom: 30px;
         overflow: hidden;
+        margin-bottom: 30px;
       }
 
-      .headshot {
-        overflow: hidden;
+      img {
+        width: 300px;
       }
 
       .card-title {
@@ -36,7 +36,7 @@
 
       .card:hover {
         box-shadow: 8px 8px 15px #808080;
-        transform: translate(5px, 5px);
+        /* transform: translate(5px, 5px); */
       }
 
       .card:hover img {
@@ -57,40 +57,49 @@
         color: black;
         background-color: white !important;
       }
+
+      .card-text {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
     </style>
   </head>
 
   <body>
     <div class="container-fluid">
       <div class="jumbotron bg-info">
-        <h1>Pizza Card Template</h1>
+        <h1>lol Card Template</h1>
       </div>
 
-      <div class="row"></div>
+      <div class="row justify-content-center"></div>
     </div>
 
-    <template id="cardPizza">
-      <div class="card" style="width: 18rem">
-        <img src="..." class="card-img-top" alt="..." />
+    <template id="cardlol">
+      <div class="card col-6 col-lg-3">
+        <img src="" class="w-100 overflow-hidden" alt=" ..." />
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title"></h5>
           <p class="card-text"></p>
           <a href="#" class="btn btn-primary">詳細</a>
+          <a href="#" class="btn btn-danger video">影片</a>
         </div>
       </div>
     </template>
+
     <!-- Modal -->
     <div
       class="modal fade"
-      id="exampleModal"
+      id="control"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
             <button
               type="button"
               class="close"
@@ -101,8 +110,12 @@
             </button>
           </div>
           <div class="modal-body">
-            <img id="pizzaImage" />
-            <h1 id="description" class="text-primary"></h1>
+            <img id="lolImg" class="w-100" src="" alt="" />
+            <p id="hp" class="text-primary"></p>
+            <p id="movespeed" class="text-primary"></p>
+            <p id="armor" class="text-primary"></p>
+            <p id="spellblock" class="text-primary"></p>
+            <p id="attackrange" class="text-primary"></p>
           </div>
           <div class="modal-footer">
             <button
@@ -112,7 +125,41 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="video_modal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabe2"></h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="wrap"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>
@@ -135,48 +182,76 @@
     ></script>
 
     <script type="module">
-      import { $g } from "../Front-BuildSchool-2021/helpers.js";
+      import { $g } from "./module/helpers.js";
 
-      const url =
-        "https://raw.githubusercontent.com/yopn5yopn5/FileStorage/main/lol.json";
-
-      let xhr = new XMLHttpRequest();
-      let PizzaArray = [];
-
-      let row = $g(".row");
       window.onload = function () {
-        let card = $g("#cardPizza");
+        let row = $g(".row");
+        let card = $g("#cardlol");
+        let modol1_h5 = $g("#exampleModalLabel");
+        let modol2_h5 = $g("#exampleModalLabe2");
+        let wrap = $g("#wrap");
+        let img = $g("#lolImg");
+        let hp = $g("#hp");
+        let movespeed = $g("#movespeed");
+        let armor = $g("#armor");
+        let spellblock = $g("#spellblock");
+        let attackrange = $g("#attackrange");
+        let lolarray = [];
 
-        xhr.onload = function () {
-          PizzaArray = JSON.parse(this.responseText);
-          //如果成功
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            PizzaArray.forEach((item, index) => {
-              let cloneContent = card.content.cloneNode(true);
-              //抓標題名稱與圖片
-              cloneContent.querySelector("h5").innerText = item.name;
-              cloneContent.querySelector("img").src = item.imageurl;
-              //當被點擊
-              cloneContent
-                .querySelector(".btn")
-                .addEventListener("click", function () {
-                  this.setAttribute("data-toggle", "modal");
-                  this.setAttribute("data-target", "#exampleModal");
-                  //設定裡面每個東西
-                  let modal = $g("#exampleModal");
-                  modal.querySelector("h5").innerText = item.name;
-                  modal.querySelector("#pizzaImage").src = item.imageurl;
-                  modal.querySelector("#description").innerText = item.name;
-                });
-              row.append(cloneContent);
-            });
-          } else {
-            msg.textContent = "發⽣生錯誤，HTTP response代碼：" + xhr.status;
-          }
-        };
+        const url =
+          "https://raw.githubusercontent.com/xt3120932/FileStorage/main/Lol_source.json";
 
-        xhr.open("GET", url);
-        xhr.send();
+        fetch(url)
+          .then((response) => response.text())
+          .then((result) => {
+            lolarray = Object.values(JSON.parse(result).data);
+            console.log(lolarray);
+
+            create();
+          })
+          .catch((ex) => {
+            $g("body").innerHTML = ex;
+          })
+          .finally(() => {});
+
+        function create() {
+          lolarray.forEach((item, index) => {
+            let cloneContent = card.content.cloneNode(true);
+            cloneContent.querySelector(
+              "h5"
+            ).innerText = `${index}：${item.id} - ${item.name}`;
+            cloneContent.querySelector("p").innerText = item.blurb;
+            cloneContent.querySelector(
+              "img"
+            ).src = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${item.image.full}`;
+
+            cloneContent
+              .querySelector(".btn")
+              .addEventListener("click", function () {
+                this.setAttribute("data-toggle", "modal");
+                this.setAttribute("data-target", "#control");
+                img.src = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${item.image.full}`;
+                modol1_h5.innerText = item.id + " - " + item.name;
+                hp.innerText = `HP : ${item.stats.hp}`;
+                movespeed.innerText = `Movespeed : ${item.stats.movespeed}`;
+                armor.innerText = `Armor : ${item.stats.armor}`;
+                spellblock.innerText = `Spellblock : ${item.stats.spellblock}`;
+                attackrange.innerText = `Attackrange : ${item.stats.attackrange}`;
+              });
+
+            cloneContent
+              .querySelector(".video")
+              .addEventListener("click", function () {
+                this.setAttribute("data-toggle", "modal");
+                this.setAttribute("data-target", "#video_modal");
+                modol2_h5.innerText = item.id + " - " + item.name;
+
+                wrap.innerHTML =
+                  '<iframe width="450" height="315" src="https://www.youtube.com/embed/7_eJlbRkXTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+              });
+            row.append(cloneContent);
+          });
+        }
       };
     </script>
   </body>
