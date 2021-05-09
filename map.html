@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GoogleMarker</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <!-- 先引入 google map api -->
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyACQRDa02znFAaPJasUw0HrSQlXTOvBOBo"></script>
+    <!-- 1. 直接使用 file 讀入資料的 js 檔 -->
+    <script src="./map_file/area.js"></script>
+    <script src="./map_file/water.js"></script>
+    <!-- 2 .直接使用 get 載入資料的 js 檔，目前不可用。-->
+    <!-- <script src="init_data.js"></script> -->
+    <script src="./map_file/marker.js"></script>
+  </body>
+</html>
