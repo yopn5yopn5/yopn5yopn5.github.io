@@ -61,7 +61,7 @@
       .card-text {
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 4;
         overflow: hidden;
       }
     </style>
@@ -88,7 +88,7 @@
       </div>
     </template>
 
-    <!-- Modal -->
+    <!--第一個Modal點選詳細 -->
     <div
       class="modal fade"
       id="control"
@@ -130,7 +130,7 @@
       </div>
     </div>
 
-    <!-- Modal -->
+    <!---第二個Modal點選影片-->
     <div
       class="modal fade"
       id="video_modal"
@@ -199,7 +199,7 @@
         let lolarray = [];
 
         const url =
-          "https://raw.githubusercontent.com/xt3120932/FileStorage/main/Lol_source.json";
+          "https://raw.githubusercontent.com/yopn5yopn5/FileStorage/main/lol.json";
 
         fetch(url)
           .then((response) => response.text())
@@ -245,7 +245,6 @@
                 this.setAttribute("data-toggle", "modal");
                 this.setAttribute("data-target", "#video_modal");
                 modol2_h5.innerText = item.id + " - " + item.name;
-
                 wrap.innerHTML =
                   '<iframe width="450" height="315" src="https://www.youtube.com/embed/7_eJlbRkXTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
               });
