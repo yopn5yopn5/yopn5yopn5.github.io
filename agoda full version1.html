@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Document111</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,21 +24,24 @@
    />
    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <style>
-      .register {
+      .register{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
       }
       .register a {
         text-decoration: none;
+
       }
       .otherlogin {
         margin-top: 20px;
         text-align: center;
       }
-      .googleandapplelogin {
-      }
+      /* .googleandapplelogin {
+      } */
       .youshouldknow{
         margin-top: 20px;
         text-align: center;
-
 
       }
       .line{
@@ -55,6 +58,7 @@
         border-radius: 0;
         font-weight: 600;
         border-color: #fff;
+        width: 100%;
         
       }
       .signin_modal .nav-tabs .nav-item {
@@ -70,8 +74,19 @@
         background-color: #fff;
         border: 1px solid gray;
       }
-  
-     
+      .checkcodeline{
+        margin-top: 10px;
+      }
+     .phonelogin{
+       margin-top: 10px;
+     }
+     .loginbuttonwithfa .btn{
+       width: 49%;
+     }
+     .phone-password{
+       margin-top: 10px;
+     }
+
     </style>
   </head>
   <body>
@@ -198,6 +213,7 @@
           <!-- modal內部控制 -->
           <div class="modal-body signin_modal">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <!-- 手機與電子郵件的切換 -->
               <li class="nav-item" role="presentation">
                 <button
                   class="nav-link active"
@@ -275,14 +291,12 @@
                 </div>
                 <div class="d-grid gap-2">
                   <button class="btn btn-outline-primary" type="button">
-                    使用facebook登入
-                  </button>
-                  <button class="btn btn-outline-primary" type="button">
                     使用GOOGLE登入
                   </button>
-                  <button class="btn btn-outline-primary" type="button">
-                    使用APPLE登入
-                  </button>
+                  <div class="loginbuttonwithfa">
+                  <button type="button" class="btn btn-outline-primary" id="facebooklogin">使用facebook登入</button>
+                  <button type="button" class="btn btn-outline-primary" id="applelogin">使用APPLE登入</button>
+                </div>
                   </div>
                   <div class="youshouldknow">
                   <p>
@@ -307,12 +321,11 @@
                 aria-labelledby="profile-tab"
               >
               <!-- phone登入區塊 -->
-              <div class="Phone_container">
-                <form id="login" onsubmit="process(event)">
-                  <p>請輸入手機號碼:</p>
-                  <input id="phone" type="tel" name="phone" />
-      
-                  <div class="phone-password">
+                <div class="mb-3 inputphone">
+                  <label for="Phone1">電話號碼</label>
+                      <input type="tel" class="form-control" id="phone1" aria-describedby="PhoneHelp" placeholder="Enter Phone">
+                </div>
+                  <div class="mb-3 phone-password">
                     <label for="password1">密碼</label>
                     <input type="password" class="form-control" id="password1" aria-describedby="emailHelp" placeholder="Enter Password">
                   </div>
@@ -324,11 +337,13 @@
       
                     <div class="g-recaptcha" data-sitekey="6LeBRdgaAAAAANViv2aNUZR_CbTY0rKNav5zdCLA"></div>
                   </div>
+                  <div class="phonelogin">
                   <div class="d-grid gap-2">
                     <button class="btn btn-primary" type="button">
                       登入
                     </button>
                     </div>
+                  </div>
                     <div class="register">
                       <a href="#">我是新朋友</a>
                       <a href="#"
@@ -341,14 +356,12 @@
       
                     <div class="d-grid gap-2">
                       <button class="btn btn-outline-primary" type="button">
-                        使用facebook登入
-                      </button>
-                      <button class="btn btn-outline-primary" type="button">
                         使用GOOGLE登入
                       </button>
-                      <button class="btn btn-outline-primary" type="button">
-                        使用APPLE登入
-                      </button>
+                      <div class="loginbuttonwithfa">
+                      <button type="button" class="btn btn-outline-primary" id="facebooklogin">使用facebook登入</button>
+                      <button type="button" class="btn btn-outline-primary" id="applelogin">使用APPLE登入</button>
+                    </div>
                       </div>
       
                     <div class="line">
@@ -437,56 +450,55 @@ aria-hidden="true"
         >
         <!-- 電子信箱內部 -->
         <form>
-          <div class="form-group">
+          <div class="mb-3 form-group">
             <label for="EnglishFirstName">英文護照名</label>
             <input type="text" class="form-control" id="EnglishFirstName" aria-describedby="emailHelp" placeholder="Enter First Name">
 
           </div>
-          <div class="form-group">
+          <div class="mb-3 form-group">
             <label for="EnglishLastName">英文護照姓</label>
             <input type="text" class="form-control" id="EnglishLastName" placeholder="Enter Last Name">
           </div>
-          <div class="form-group">
+          <div class="mb-3 form-group">
             <label for="exampleInputEmail1">電子信箱</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter E-Mail">
 
           </div>
-          <div class="form-group">
+          <div class="mb-3 form-group">
             <label for="password1">密碼</label>
             <input type="password" class="form-control" id="password1" aria-describedby="emailHelp" placeholder="Enter Password">
 
           </div>
-          <div class="form-group">
+          <div class="mb-3 form-group">
             <label for="DoubleCheck">確認密碼</label>
             <input type="password" class="form-control" id="DoubleCheck" aria-describedby="emailHelp" placeholder="Check Password">
 
           </div>
-          <div class="form-check">
+          <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">我想要收到Agoda的獨家促銷情報，同時根據隱私權政策，我保留隨時取消訂閱的權利</label>
           </div>
           <div class="robot">
 
             <div class="g-recaptcha" data-sitekey="6LeBRdgaAAAAANViv2aNUZR_CbTY0rKNav5zdCLA"></div>
-          </div>
+          </div>   
+           <div class="checkcodeline">
           <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary">加入會員</button>
           </div>
+        </div>
           <div class="otherlogin">
             <p>使用其他登入方式</p>
           </div>
           <div class="d-grid gap-2">
             <button class="btn btn-outline-primary" type="button">
-              使用facebook登入
-            </button>
-            <button class="btn btn-outline-primary" type="button">
               使用GOOGLE登入
             </button>
-            <button class="btn btn-outline-primary" type="button">
-              使用APPLE登入
-            </button>
-
+            <div class="loginbuttonwithfa">
+            <button type="button" class="btn btn-outline-primary" id="facebooklogin">使用facebook登入</button>
+            <button type="button" class="btn btn-outline-primary" id="applelogin">使用APPLE登入</button>
           </div>
+            </div>
           <div class="line">
           </div>
           <div class="tologin">
@@ -511,11 +523,11 @@ aria-hidden="true"
         >
         <!-- 電話號碼片段 -->   
         <div class="Phone_container">
-          <form id="login" onsubmit="process(event)">
+          <form  id="login" onsubmit="process(event)">
             <p>請輸入手機號碼:</p>
             <input id="phone" type="tel" name="phone" />
 
-            <div class="phone-password">
+            <div class="mb-3 phone-password">
               <label for="password1">密碼</label>
               <input type="password" class="form-control" id="password1" aria-describedby="emailHelp" placeholder="Enter Password">
             </div>
@@ -527,25 +539,25 @@ aria-hidden="true"
 
               <div class="g-recaptcha" data-sitekey="6LeBRdgaAAAAANViv2aNUZR_CbTY0rKNav5zdCLA"></div>
             </div>
+            <div class="checkcodeline">
             <div class="d-grid gap-2">
               <button class="btn btn-primary" type="button">
                 發送認證碼
               </button>
               </div>
+            </div>
               <div class="otherlogin">
                 <p>使用其他登入方式</p>
               </div>
 
               <div class="d-grid gap-2">
                 <button class="btn btn-outline-primary" type="button">
-                  使用facebook登入
-                </button>
-                <button class="btn btn-outline-primary" type="button">
                   使用GOOGLE登入
                 </button>
-                <button class="btn btn-outline-primary" type="button">
-                  使用APPLE登入
-                </button>
+                <div class="loginbuttonwithfa">
+                <button type="button" class="btn btn-outline-primary" id="facebooklogin">使用facebook登入</button>
+                <button type="button" class="btn btn-outline-primary" id="applelogin">使用APPLE登入</button>
+              </div>
                 </div>
 
               <div class="line">
