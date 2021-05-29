@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document111</title>
+    <title>agoda login</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -126,48 +126,9 @@
                 data-bs-target="#exampleModal"
                 >登入</a
               >
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                >Disabled</a
-              >
+            </li>         
             </li>
           </ul>
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
         </div>
       </div>
     </nav>
@@ -333,10 +294,9 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">我想要收到特惠情報</label>
                   </div>
-                  <div class="robot">
+                  <!-- <div class="robot">
       
-                    <div class="g-recaptcha" data-sitekey="6LeBRdgaAAAAANViv2aNUZR_CbTY0rKNav5zdCLA"></div>
-                  </div>
+                  </div> -->
                   <div class="phonelogin">
                   <div class="d-grid gap-2">
                     <button class="btn btn-primary" type="button">
@@ -480,7 +440,7 @@ aria-hidden="true"
           </div>
           <div class="robot">
 
-            <div class="g-recaptcha" data-sitekey="6LeBRdgaAAAAANViv2aNUZR_CbTY0rKNav5zdCLA"></div>
+            <div class="g-recaptcha" da ta-sitekey="6LeBRdgaAAAAANViv2aNUZR_CbTY0rKNav5zdCLA"></div>
           </div>   
            <div class="checkcodeline">
           <div class="d-grid gap-2">
@@ -585,12 +545,14 @@ aria-hidden="true"
     //程式碼區域
     //國際電話script
     const phoneInputField = document.querySelector("#phone");
-   const phoneInput = window.intlTelInput(phoneInputField, {
+    const phoneInput = window.intlTelInput(phoneInputField, {
      utilsScript:
        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
    });
    </script>
+   <!-- //google我不是機器人 -->
    <script src='https://www.google.com/recaptcha/api.js'></script>
+   <!-- //其他 -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
