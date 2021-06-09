@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="card sigin-card w-500 mx-auto my-5">
+        <div class="card-body">
+            <div class="ps-3 pt-3">
+                <h5 class="modal-title fw-bold fz-24" id="exampleModalLabel-card">
+                    A咖登入
+                </h5>
+                <p id="emailHelp-card" class="form-text fw-normal fz-16">
+                    為了保障你的個資安全，請先登入才能查看個人資訊
+                </p>
+            </div>
+
+            <!-- modal內部控制 -->
+            <div class="modal-body signin_modal">
+                <ul class="nav nav-tabs" id="myTab-card" role="tablist">
+                    <!-- 手機與電子郵件的切換 -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab-card" data-bs-toggle="tab"
+                            data-bs-target="#emailgo-card" type="button" role="tab" aria-controls="home"
+                            aria-selected="true">
+                            電子郵件登入
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab-card" data-bs-toggle="tab"
+                            data-bs-target="#phonego-card" type="button" role="tab" aria-controls="profile"
+                            aria-selected="false">
+                            手機號碼登入
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent-card">
+                    <div class="tab-pane fade show active" id="emailgo-card" role="tabpanel"
+                        aria-labelledby="home-tab-card">
+                        <!-- 電子郵件登入區塊 -->
+
+                        <form>
+                            <div class="mb-3">
+                                <label for="LoginEmail" class="form-label">電子信箱</label>
+                                <input type="email" class="form-control" id="LoginEmail-card"
+                                    aria-describedby="emailHelp-card" placeholder="email" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="LoginPassword" class="form-label">密碼</label>
+                                <input type="password" class="form-control" id="LoginPassword-card"
+                                    placeholder="Password" />
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary my-2 py-2 login-btn">登入</button>
+                            </div>
+                            <div class="register">
+                                <a href="#modal" data-bs-toggle="modal" data-bs-target="#RegisterModal"
+                                    id="EmailLogintoRegister">我是新朋友</a>
+                                <a href="#modal" data-bs-toggle="modal" data-bs-target="#ForgetPasswordModal"
+                                    id="EmailLogintoForgetPassword"><i class="fas fa-lock"></i>忘記密碼？別慌，點此找幫手！</a>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="phonego-card" role="tabpanel" aria-labelledby="profile-tab-card">
+                        <form>
+                            <!-- phone登入區塊 -->
+                            <div class="mb-3 inputphone">
+                                <label for="PhoneLogin" class="form-label">手機號碼</label>
+                                <input type="tel" class="form-control" id="PhoneLogin-card"
+                                    aria-describedby="emailHelp-card" placeholder="Enter Phone">
+                            </div>
+                            <div class="mb-3 phone-password">
+                                <label for="PhonePassword" class="form-label">密碼</label>
+                                <input type="password" class="form-control" id="PhonePassword-card"
+                                    aria-describedby="emailHelp-card" placeholder="Enter Password">
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary my-2 py-2 login-btn" type="button">
+                                    登入
+                                </button>
+                            </div>
+                            <div class="register">
+                                <a href="#modal" data-bs-toggle="modal" data-bs-target="#RegisterModal"
+                                    id="PhoneLogintoRegister-card">我是新朋友</a>
+                                <a href="#modal" data-bs-toggle="modal" data-bs-target="#ForgetPasswordModal"
+                                    id="PhoneLogintoForgetPassword-card"><i class="fas fa-lock"></i>忘記密碼？別慌，點此找幫手！</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="otherlogin">
+                    <p>使用其他登入方式</p>
+                </div>
+
+                <div class="d-grid gap-2 otherlogin-btn-group">
+                    <button class="otherlogin-btn" type="button">
+                        <img src="https://cdn6.agoda.net/images/universal-login/google-logo-v2.svg" alt=""> Google
+                    </button>
+                    <div class="loginbuttonwithfa">
+                        <button type="button" class="otherlogin-btn" id="Phonefacebooklogin-card"><img
+                                src="https://cdn6.agoda.net/images/universal-login/facebook-logo.svg" alt="">
+                            Facebook</button>
+                        <button type="button" class="otherlogin-btn" id="Phoneapplelogin-card"><img
+                                src="https://cdn6.agoda.net/images/universal-login/apple-logo.svg" alt="">
+                            Apple</button>
+                    </div>
+                </div>
+
+                <div class="youshouldknow">
+                    <p>
+                        </a>點擊登錄即代表我同意Agoda的 <a href="">服務條款</a> 和 <a href="">隱私權政策</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
